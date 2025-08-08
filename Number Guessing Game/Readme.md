@@ -1,6 +1,6 @@
 # Number Guessing Game
 
-   This script is a number guessing game. It is my personal implementation of the beginner python project that is available on [roadmap.sh](https://roadmap.sh/projects/number-guessing-game). I hope that my code as it is might be used to understand the basic logic of a simple number guessing game.
+   This script is a number guessing game. It is my personal implementation of the beginner python project that is available on [roadmap.sh](https://github.com/Osholarin/Roadmap.sh/Number Guessing Game.git). I hope that my code as it is might be used to understand the basic logic of a simple number guessing game.
 
 ## How to use
     :Usage
