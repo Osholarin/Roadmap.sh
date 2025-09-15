@@ -37,6 +37,17 @@ def list_tasks():
     for task in tasks:
         print(f"{task['Id']}. {task['description']}      {task['status']}")
 
+def update_tasks(Id, description):
+    tasks = load_tasks()
+    if Id in range(len(tasks) + 1):
+        for task in tasks:
+            if task['Id'] == Id:
+                task['description'] = description
+        save_tasks(tasks)
+        print("Task updated!")
+    else:
+        print("Task not found!")
+
 def delete_tasks(Id):
     tasks = load_tasks()
     if Id in range(len(tasks) + 1):
@@ -60,7 +71,8 @@ def main():
 
     # Update command
     update_parser = subparsers.add_parser("update", description="Updates a tasks status")
-    update_parser.add_argument("Id",help="update parser")
+    update_parser.add_argument("Id", type=int, help="Task Id")
+    update_parser.add_argument("description", type=str, help="Task description")
 
     # Delete command
     delete_parser = subparsers.add_parser("delete", description="Deletes a chosen task")
@@ -78,6 +90,8 @@ def main():
         list_tasks()
     elif args.command == "delete":
         delete_tasks(args.Id)
+    elif args.command == "update":
+        update_tasks(args.Id, args.description)
     else:
         parser.print_help()
 
