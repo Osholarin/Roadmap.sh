@@ -32,10 +32,16 @@ def add_tasks(description, status="pending"):
     save_tasks(tasks)
     print("Task added")
 
-def list_tasks():
+def list_tasks(status=None):
     tasks = load_tasks()
-    for task in tasks:
-        print(f"{task['Id']}. {task['description']}      {task['status']}")
+    if status == None:
+        for task in tasks:
+            print(f"{task['Id']}. {task['description']}      {task['status']}")
+
+    else:
+        for task in tasks:
+            if task['status'] == status:
+                print(f"{task['Id']}. {task['description']}      {task['status']}")
 
 def update_tasks(Id, description):
     tasks = load_tasks()
@@ -61,14 +67,14 @@ def delete_tasks(Id):
     else:
         print("Task not found")
 
-def mark_done_tasks(Id):
+def mark_tasks(Id, status):
     tasks = load_tasks()
     if Id in range(len(tasks) + 1):
         for task in tasks:
             if task['Id'] == Id:
-                task['status'] = "done"
+                task['status'] = status
         save_tasks(tasks)
-        print("Task marked as done")
+        print(f"Task marked as {status}")
     else:
         print('Task not found!')
 
@@ -91,24 +97,25 @@ def main():
 
     # List command
     list_parser = subparsers.add_parser("list",description="Listing all tasks")
-    list_parser.add_argument("list", type=str, nargs='?', default=None, help="List tasks")
+    list_parser.add_argument("status", type=str, nargs='?', default=None, help="List tasks")
 
     # Mark commands
-    mark_done_parser = subparsers.add_parser("mark-done", description="Marks tasks as finished")
-    mark_done_parser.add_argument("Id", type=int, help="Task Id")
+    mark_parser = subparsers.add_parser("mark", description="Marks tasks as finished")
+    mark_parser.add_argument("Id", type=int, help="Task Id")
+    mark_parser.add_argument("status", type=str, choices=['done', 'pending', 'in-progress'], help="Task status")
 
     args = parser.parse_args()
 
     if args.command == "add":
         add_tasks(args.description)
     elif args.command == "list":
-        list_tasks()
+        list_tasks(args.status)
     elif args.command == "delete":
         delete_tasks(args.Id)
     elif args.command == "update":
         update_tasks(args.Id, args.description)
-    elif args.command == "mark-done":
-        mark_done_tasks(args.Id)
+    elif args.command == "mark":
+        mark_tasks(args.Id, args.status)
     else:
         parser.print_help()
 
