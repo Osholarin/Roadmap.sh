@@ -61,6 +61,17 @@ def delete_tasks(Id):
     else:
         print("Task not found")
 
+def mark_done_tasks(Id):
+    tasks = load_tasks()
+    if Id in range(len(tasks) + 1):
+        for task in tasks:
+            if task['Id'] == Id:
+                task['status'] = "done"
+        save_tasks(tasks)
+        print("Task marked as done")
+    else:
+        print('Task not found!')
+
 def main():
     parser = argparse.ArgumentParser(description="A Task Tracking App")
     subparsers = parser.add_subparsers(dest='command', help="Available commands")
@@ -82,6 +93,10 @@ def main():
     list_parser = subparsers.add_parser("list",description="Listing all tasks")
     list_parser.add_argument("list", type=str, nargs='?', default=None, help="List tasks")
 
+    # Mark commands
+    mark_done_parser = subparsers.add_parser("mark-done", description="Marks tasks as finished")
+    mark_done_parser.add_argument("Id", type=int, help="Task Id")
+
     args = parser.parse_args()
 
     if args.command == "add":
@@ -92,6 +107,8 @@ def main():
         delete_tasks(args.Id)
     elif args.command == "update":
         update_tasks(args.Id, args.description)
+    elif args.command == "mark-done":
+        mark_done_tasks(args.Id)
     else:
         parser.print_help()
 
