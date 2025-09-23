@@ -36,7 +36,7 @@ def list_tasks(status=None):
     tasks = load_tasks()
     if status == None:
         for task in tasks:
-            print(f"{task['Id']}. {task['description']}      {task['status']}")
+            print(f"{task['Id']}. {task['description']}.  {task['status']}")
 
     else:
         for task in tasks:
@@ -61,7 +61,7 @@ def delete_tasks(Id):
             if task['Id'] == Id:
                 tasks.remove(task)
         for index, task in enumerate(tasks, start=1):
-            task['Id'] == index
+            task['Id'] = index
         save_tasks(tasks)
         print("Task deleted")
     else:
