@@ -5,7 +5,7 @@ This is a basic cli task tracking app, built in python using only modules from t
 This is my personal implementation of the beginner python series that ia available on roadmap.sh. 
 
 ## Link to the project
-[Task Tracker](https://roadmap.sh/projects/number-guessing-game)
+[Task Tracker](https://roadmap.sh/projects/task-tracker)
 
 ### Features
 
