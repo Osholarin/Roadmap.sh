@@ -1,6 +1,7 @@
 import argparse
 import json
 from datetime import datetime
+import textwrap
 
 filename = "tasks.json"
 
@@ -32,11 +33,28 @@ def add_tasks(description, status="pending"):
     save_tasks(tasks)
     print("Task added")
 
-def list_tasks(status=None):
+
+def tabulate(id, description, status, desc_width=30):
+    # wrap description text
+    wrapped_desc = textwrap.fill(description, width=desc_width)
+    desc_lines = wrapped_desc.split('\n')
+
+    # Print first line with ID, first description line, and status
+    print(f"{id:<5} {desc_lines[0]:<{desc_width}} {status:<10}")
+
+    # Print remaining description lines if any
+    for line in desc_lines[1:]:
+        print(f"{'':5} {line:<{desc_width}} {'':10}")
+
+def list_tasks(status=None, desc_width=30):
     tasks = load_tasks()
+    print(f"{'ID':<5} {'Description':<{desc_width}} {'Status':<10}")
+    print("-" * (5 + desc_width + 12))
+
     if status == None:
         for task in tasks:
-            print(f"{task['Id']}. {task['description']}.  {task['status']}")
+            values = (task['Id'], task['description'], task['status'])
+            tabulate(*values)
 
     else:
         for task in tasks:
