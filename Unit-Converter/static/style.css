@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.window {
+    background-color: #fff;
+    border: 3px solid #000;
+    border-radius: 8px;
+    padding: 30px;
+    width: 300px;
+    height: 400px;
+}
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: black;
+}
+#link {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    padding-right: 10px;
+}
+.main-div {
+    padding-top: 20px;
+}
+label {
+    display: block;
+    font-size: 15px;
+    font-weight: bold;
+    color: #000;
+        }
+input, select {
+    width: 250px;
+    padding: 4px;
+    border: 2px solid #000;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fff;
+        }
+
+.form-group {
+    margin-bottom: 20px;
+    }
+
+.convert-btn {
+    background-color: #e8e8e8;
+    border: 2px solid #000;
+    border-radius: 4px;
+    padding: 5px 25px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.result {
+    margin-top: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    border-left: 5px solid #667eea;
+}
+
+#active {
+    color: blue;
+}

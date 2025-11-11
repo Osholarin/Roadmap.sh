@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="window">
+        <h1>Unit Converter</h1>
+        <div>
+            <a id="link" href="http://127.0.0.1:8000/">length</a>
+            <a id="link active" href="http://127.0.0.1:8000/weight">weight</a>
+            <a id="link" href="http://127.0.0.1:8000/temperature">temperature</a>
+        </div>
+        {% if not data %}
+        <div class="main-div">
+            <form action="/weight" method="POST">
+                <label for="entry">Enter the weight to convert</label>
+                <br/>
+                <input type="number", class="form-group", name="entry">
+                <br/>
+                <label for="unit">Unit to Convert from</label>
+                <br/>
+                <input type="text", class="form-group", name="unit">
+                <br/>
+                <label for="new_unit">Unit to Convert to</label>
+                <br/>
+                <input type="text", class="form-group", name="new_unit">
+                <br/>
+                <button class="convert-btn" type="submit" id="form-group">Convert</button>
+            </form>
+        </div>
+    </div>
+    {% else %}
+    <div class="result">
+        <h2>Result:</h2>
+        <ol>
+            <li>{{ data.entry }}</li>
+            <li>{{ data.unit  }}</li>
+            <li>{{ data.new_unit  }}</li>
+        </ol>
+    </div>
+    {% endif %}
+</body>
+</html>
