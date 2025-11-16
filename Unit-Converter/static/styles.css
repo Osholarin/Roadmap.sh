@@ -25,6 +25,11 @@ h1 {
     font-weight: bold;
     padding-right: 10px;
 }
+
+a {
+    padding-right: 10px;
+    padding-left: 10px;
+}
 .main-div {
     padding-top: 20px;
 }
@@ -62,9 +67,4 @@ input, select {
     padding: 20px;
     background: white;
     border-radius: 10px;
-    border-left: 5px solid #667eea;
-}
-
-#active {
-    color: blue;
 }
