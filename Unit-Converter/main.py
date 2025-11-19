@@ -29,7 +29,7 @@ async def get_arguements(
     unit: str = Form(...), 
     new_unit: str = Form(...)):
 
-    result = convert_temperature(entry, unit, new_unit)
+    result = convert_length(entry, unit, new_unit)
     return templates.TemplateResponse("index.html", {"request": request, "result": result})
 
 @app.post("/weight", response_class=HTMLResponse)
@@ -39,7 +39,7 @@ async def get_arguements(
     unit: str = Form(...), 
     new_unit: str = Form(...)):
 
-    result = convert_temperature(entry, unit, new_unit)
+    result = convert_weight(entry, unit, new_unit)
     return templates.TemplateResponse("weight.html", {"request": request, "result": result})
 
 @app.post("/temperature", response_class=HTMLResponse)
