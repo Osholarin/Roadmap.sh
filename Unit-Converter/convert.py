@@ -13,10 +13,7 @@ def convert_temperature(value, unit, new_unit):
     if unit and new_unit in temperature_base_map:
         base = temperature_base_map[unit](value)
         return kelvin_map[new_unit](base)
-    else:
-        return value
     
-
 weight_base_map = {
     "milligram": 0.001,
     "gram": 1,
