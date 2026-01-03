@@ -10,9 +10,9 @@ kelvin_map = {
     "kelvin": lambda c: c * 1
 }
 def convert_temperature(value, unit, new_unit):
-    if unit and new_unit in temperature_base_map:
+    if new_unit in kelvin_map:
         base = temperature_base_map[unit](value)
-        return kelvin_map[new_unit](base)
+        return round(kelvin_map[new_unit](base), 5)
     
 weight_base_map = {
     "milligram": 0.001,
@@ -33,9 +33,9 @@ gram_map = {
 def convert_weight(value, unit, new_unit):
     if unit in weight_base_map:
         base = weight_base_map[unit] * value
-        return base * gram_map[new_unit]
+        return round(base * gram_map[new_unit], 5)
 
-base_map = {
+length_base_map = {
     "millimeter": 0.001,
     "centimeter": 0.01,
     "meter": 1,
@@ -58,6 +58,6 @@ meter_map = {
 }
 
 def convert_length(value, unit, new_unit):
-    if unit in base_map:
-        base = base_map[unit] * value
-        return base * meter_map[new_unit]
+    if unit in length_base_map:
+        base = length_base_map[unit] * value
+        return round(base * meter_map[new_unit], 5)
