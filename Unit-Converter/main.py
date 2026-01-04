@@ -27,7 +27,7 @@ def return_temperature_form(request: Request):
 @app.post("/length", response_class=HTMLResponse)
 async def get_length(
     request: Request, 
-    entry: int = Form(...), 
+    entry: float = Form(...),
     unit: str = Form(...), 
     new_unit: str = Form(...)):
 
@@ -37,7 +37,7 @@ async def get_length(
 @app.post("/weight", response_class=HTMLResponse)
 async def get_weight(
     request: Request, 
-    entry: int = Form(...), 
+    entry: float = Form(...),
     unit: str = Form(...), 
     new_unit: str = Form(...)):
 
@@ -47,7 +47,7 @@ async def get_weight(
 @app.post("/temperature", response_class=HTMLResponse)
 async def get_temperature(
     request: Request, 
-    entry: int = Form(...), 
+    entry: float = Form(...),
     unit: str = Form(...), 
     new_unit: str = Form(...)):
 
