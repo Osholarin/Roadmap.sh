@@ -3,7 +3,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from convert import convert_length, convert_weight, convert_temperature
-from test_convert import convert_length, convert_temperature, convert_weight
+from convert import convert_length, convert_temperature, convert_weight
 
 # initialize the fastapi app
 app = FastAPI()
