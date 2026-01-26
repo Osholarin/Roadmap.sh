@@ -13,7 +13,7 @@
             <a id="link" href="http://127.0.0.1:8000/weight">weight</a>
             <a id="link" href="http://127.0.0.1:8000/temperature">temperature</a>
         </div>
-        {% if not result%}
+        {% if not result and not error %}
         <div class="main-div">
             <form action="/length" method="POST">
                 <label for="entry">Enter the length to convert</label>
@@ -43,7 +43,7 @@
             </form>
         </div>
     </div>
-    {% else %}
+    {% elif result %}
     <div class="result">
         <h3>Result of your calculation</h3>
         <h4>{{ result }}</h4>
@@ -51,6 +51,15 @@
             <button class="convert-btn" id="form-group">Reset</button>
         </a>
     </div>
+
+    {% else %}
+    <div class="error-message">
+            <strong>Error:</strong> {{ error }}
+            <a href="http://127.0.0.1:8000/">
+                <button class="convert-btn" id="form-group">Reset</button>
+            </a>
+        </div>
     {% endif %}
+
 </body>
 </html>

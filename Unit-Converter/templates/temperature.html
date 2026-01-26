@@ -15,7 +15,7 @@
             <a id="link active" href="http://127.0.0.1:8000/temperature">temperature</a>
         </div>
 
-        {% if not result %}
+        {% if not result and not error %}
         <div class="main-div">
             <form action="/temperature" method="POST">
                 <label for="entry">Enter the temperature to convert</label>
@@ -39,7 +39,7 @@
                 </datalist>
             </form>
         </div>
-        {% else %}
+        {% elif result %}
         <div class="result">
             <h3>Result of your calculation</h3>
             <h4>{{ result }}</h4>
@@ -48,6 +48,13 @@
             </a>
         </div>
     </div>
+    {% else %}
+    <div class="error-message">
+            <strong>Error:</strong> {{ error }}
+            <a href="http://127.0.0.1:8000/">
+                <button class="convert-btn" id="form-group">Reset</button>
+            </a>
+        </div>
     {% endif %}
 </body>
 </html>

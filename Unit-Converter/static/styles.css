@@ -68,3 +68,11 @@ input, select {
     background: white;
     border-radius: 10px;
 }
+
+.error-message{
+    color: red; 
+    margin-top: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+}
