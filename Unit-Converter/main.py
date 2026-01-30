@@ -3,7 +3,6 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from convert import convert_length, convert_weight, convert_temperature
-from convert import convert_length, convert_temperature, convert_weight
 
 # initialize the fastapi app
 app = FastAPI()
@@ -68,7 +67,7 @@ async def get_temperature(
     new_unit: str = Form(...)):
 
     try:
-        result = convert_weight(entry, unit, new_unit)
+        result = convert_temperature(entry, unit, new_unit)
         return templates.TemplateResponse("temperature.html", {"request": request, "result": result})
     except ValueError as e:
         error = str(e)

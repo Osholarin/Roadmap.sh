@@ -2,7 +2,7 @@ symbol_map = {
     "millimeter": "mm",
     "centimeter": "cm",
     "meter": "m",
-    "kilometer": "Km",
+    "kilometer": "km",
     "inch": "in",
     "feet": "ft",
     "yard": "yd",
@@ -83,7 +83,7 @@ def convert_weight(value, unit, new_unit):
     
     # Convert to grams, then to target unit
     grams = to_grams[unit] * value
-    return grams * from_grams[new_unit]
+    return pretty_print(new_unit, grams * from_grams[new_unit])
 
 def convert_temperature(value, unit, new_unit):
     """Convert temperature between celsius, fahrenheit, and kelvin."""
@@ -109,4 +109,4 @@ def convert_temperature(value, unit, new_unit):
     
     # Convert to Kelvin, then to target unit
     kelvin_value = to_kelvin[unit](value)
-    return from_kelvin[new_unit](kelvin_value)
+    return pretty_print(new_unit, from_kelvin[new_unit](kelvin_value))
