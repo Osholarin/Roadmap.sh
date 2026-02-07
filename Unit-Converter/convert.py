@@ -10,8 +10,8 @@ symbol_map = {
     "milligram": "mg",
     "gram": "g",
     "kilogram": "kg",
-    "ounce": "ou",
-    "pound": "pd",
+    "ounce": "oz",
+    "pound": "lb",
     "celsius": "℃",
     "fahrenheit": "℉",
     "kelvin": "k"

@@ -66,6 +66,9 @@ async def get_temperature(
     unit: str = Form(...), 
     new_unit: str = Form(...)):
 
+    result = None
+    error = None
+
     try:
         result = convert_temperature(entry, unit, new_unit)
         return templates.TemplateResponse("temperature.html", {"request": request, "result": result})
