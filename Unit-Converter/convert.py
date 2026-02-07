@@ -53,9 +53,9 @@ def convert_length(value, unit, new_unit):
 
     # validate units
     if unit not in to_meters:
-        raise ValueError(f"Unkown length unit: {unit}")
+        raise ValueError(f"Unknown length unit: {unit}")
     if new_unit not in from_meters:
-        raise ValueError(f"Unkown length unit: {new_unit}")
+        raise ValueError(f"Unknown length unit: {new_unit}")
     
     # conversion
     result_in_meter = to_meters[unit] * value
